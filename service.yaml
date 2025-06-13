@@ -4,12 +4,11 @@ metadata:
   name: neorent-service
   namespace: neorent
 spec:
-  type: ClusterIP
   selector:
     app: neorent
   ports:
-    - name: https
+    - name: http
       protocol: TCP
-      port: 443          # Port accessible dans le cluster
-      targetPort: 443    # Port sur le conteneur
-  
+      port: 80
+      targetPort: 8080  # ou ce que ton app utilise
+  type: ClusterIP
