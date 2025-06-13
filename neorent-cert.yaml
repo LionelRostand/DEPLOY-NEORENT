@@ -1,0 +1,13 @@
+# DEPLOY-NEORENT/neorent-cert.yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: neorent-cert
+  namespace: neorent
+spec:
+  secretName: neorent-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - neorent.neotech-consulting.com
