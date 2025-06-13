@@ -4,7 +4,7 @@ metadata:
   name: neorent-service
   namespace: neorent
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: neorent
   ports:
