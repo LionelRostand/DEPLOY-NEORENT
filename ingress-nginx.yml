@@ -5,8 +5,15 @@ metadata:
   namespace: neorent
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - neorent.neotech-consulting.com
   rules:
     - host: neorent.neotech-consulting.com
       http:
@@ -17,4 +24,4 @@ spec:
               service:
                 name: neorent-service
                 port:
-                  number: 31443
+                  number: 443 # pas 31443 ici — Ingress pointe sur le port du service (pas NodePort)
