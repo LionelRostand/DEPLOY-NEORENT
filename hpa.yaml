@@ -7,13 +7,13 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: neorent
+    name: neorent-deployment
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 5
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60  # Déclenche le scale-up si l'utilisation CPU > 60%
+          averageUtilization: 50
