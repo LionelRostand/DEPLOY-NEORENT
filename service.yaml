@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       port: 443
       targetPort: 443
-      nodePort: 31443 # Tu peux choisir un port entre 30000 et 32767
+    #   nodePort: 31443 Tu peux choisir un port entre 30000 et 32767
