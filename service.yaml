@@ -4,12 +4,12 @@ metadata:
   name: neorent-service
   namespace: neorent
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: neorent
   ports:
     - name: https
       protocol: TCP
-      port: 443
-      targetPort: 443
-        nodePort: 31443 #Tu peux choisir un port entre 30000 et 32767
+      port: 443          # Port accessible dans le cluster
+      targetPort: 443    # Port sur le conteneur
+      nodePort: 31443    # Port exposé sur le nœud (accessible depuis l'extérieur)
