@@ -5,6 +5,7 @@ metadata:
   namespace: neorent
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
@@ -23,4 +24,4 @@ spec:
               service:
                 name: neorent-service
                 port:
-                  number: 443
+                  number: 80  # ou 8080 selon ton app
