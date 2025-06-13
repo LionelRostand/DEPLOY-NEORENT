@@ -4,7 +4,7 @@ metadata:
   name: neorent-service
   namespace: neorent
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: neorent
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       port: 443          # Port accessible dans le cluster
       targetPort: 443    # Port sur le conteneur
-      nodePort: 31443    # Port exposé sur le nœud (accessible depuis l'extérieur)
+  
