@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: neorent-deploy
+  name: neorent-deployment
   namespace: neorent
 spec:
-  replicas: 1  # Nombre d'instances
+  replicas: 1
   selector:
     matchLabels:
       app: neorent
@@ -13,17 +13,20 @@ spec:
       labels:
         app: neorent
     spec:
-      nodeSelector:
-        kubernetes.io/arch: amd64 
       containers:
-        - name: neorent
+        - name: neorent-app
           image: lionel1109/neorent:latest
           ports:
-            - containerPort: 443  # Port d'écoute de l'application
-          resources:
-            requests:
-              memory: "256Mi"    # Mémoire minimum demandée
-              cpu: "100m"       # 0.1 CPU minimum demandé
-            limits:
-              memory: "512Mi"    # Mémoire maximale allouée
-              cpu: "500m"       # 0.5 CPU maximal alloué
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 15
