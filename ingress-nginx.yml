@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - neorent.example.com
+        - neorent.neotech-consulting.com
       secretName: neorent-tls
   rules:
-    - host: neorent.example.com
+    - host: neorent.neotech-consulting.com
       http:
         paths:
           - path: /
