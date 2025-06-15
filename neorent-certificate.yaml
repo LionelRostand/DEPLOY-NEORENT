@@ -5,9 +5,9 @@ metadata:
   namespace: neorent
 spec:
   secretName: neorent-tls
+  commonName: neorent.neotech-consulting.com
+  dnsNames:
+    - neorent.neotech-consulting.com
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: neorent.example.com
-  dnsNames:
-    - neorent.neotech-consulting.com
