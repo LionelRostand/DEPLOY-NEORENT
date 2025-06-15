@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: neorent-app
+  name: neorent-deployment
   namespace: neorent
   labels:
     app: neorent
 spec:
-  replicas: 3 # Scalabilité (ajuster selon besoin)
+  replicas: 1                           # Scalabilité: 3 pods
   selector:
     matchLabels:
       app: neorent
@@ -16,14 +16,14 @@ spec:
         app: neorent
     spec:
       containers:
-      - name: neorent-container
-        image: lionel1109/neorent:latest
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: "250m"      # CPU demandé
-            memory: "256Mi"  # Mémoire demandée
-          limits:
-            cpu: "500m"      # CPU limite
-            memory: "512Mi"  # Mémoire limite
+        - name: neorent-container
+          image: lionel1109/neorent:latest
+          ports:
+            - containerPort: 443
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
