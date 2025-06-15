@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: neorent.neotech-consulting.com
+  commonName: neorent.example.com
   dnsNames:
     - neorent.neotech-consulting.com
