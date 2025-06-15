@@ -6,7 +6,7 @@ metadata:
   labels:
     app: neorent
 spec:
-  replicas: 1                           # Scalabilité: 3 pods
+  replicas: 1
   selector:
     matchLabels:
       app: neorent
