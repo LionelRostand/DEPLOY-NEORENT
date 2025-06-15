@@ -20,6 +20,10 @@ spec:
           image: lionel1109/neorent:latest
           ports:
             - containerPort: 443
+          volumeMounts:
+            - name: tls-certs
+              mountPath: /etc/ssl/certs
+              readOnly: true
           resources:
             requests:
               memory: "256Mi"
@@ -27,3 +31,7 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
+      volumes:
+        - name: tls-certs
+          secret:
+            secretName: neorent-tls
