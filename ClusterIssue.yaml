@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: ton-email@example.com
+    email: admin@neotech-consulting.com
     privateKeySecretRef:
       name: letsencrypt-prod-key
     solvers:
